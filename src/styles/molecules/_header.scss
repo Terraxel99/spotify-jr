@@ -1,0 +1,63 @@
+header {
+    &.header {
+        height: $headerHeight;
+        background-color: $primaryColor;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h1 {
+            margin: 0;
+            color: $whiteColor;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            font-weight: 100;
+        }
+
+        img.site-logo {
+            height: 50px;
+            padding: 0 20px;
+        }
+
+        .global-search {
+            padding: 0 50px;
+            flex-grow: 1;
+
+            .search-field-container {
+                width: 100%;
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
+
+        .user-info {
+            min-width: 100px;
+            padding-right: 20px;
+            color: $whiteColor;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            img.user-image {
+                height: 50px;
+            }
+
+            .user-detail {
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+body .p-overlaypanel.user-panel {
+    button.logout-btn {
+        span.p-button-label {
+            padding: 0 40px;
+        }
+    }
+}

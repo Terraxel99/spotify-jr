@@ -1,0 +1,23 @@
+<header class="header">
+    <img class="site-logo" src="../../assets/images/music-icon.svg" [alt]="'APP_ICON' | translate">
+    <h1>{{'APP_TITLE' | translate}}</h1>
+    <div class="global-search">
+        <span class="search-field-container p-input-icon-right">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" class="search-field" [placeholder]="'SEARCH' | translate" />
+        </span>
+    </div>
+    <p-overlayPanel #userPanel appendTo="body" styleClass="user-panel">
+        <button type="button" class="logout-btn p-button-rounded p-button-secondary" pButton [label]="'LOGOUT' | translate" (click)="logout()"></button>
+    </p-overlayPanel>
+    <div class="user-info" *ngIf="member">
+        <img class="user-image" [src]="member.image" *ngIf="memberHasImage" [alt]="'MEMBER_ICON' | translate">
+        <span class="user-image" *ngIf="!memberHasImage">
+            <i class="pi pi-user"></i>
+        </span>
+        <div class="user-detail" (click)="userPanel.toggle($event)">
+            <p>{{member.displayName}}</p>
+            <p>{{member.email}}</p>
+        </div>
+    </div>
+</header>

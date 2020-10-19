@@ -1,0 +1,19 @@
+<div class="login-page">
+    <div class="showcase-image">
+        <div class="slogan">
+            <p class="slogan--small">{{'SLOGAN_PART_1' | translate}}</p>
+            <p class="slogan--big">{{'SLOGAN_PART_2' | translate}}</p>
+        </div>
+    </div>
+    <div class="login">
+        <h1>{{'APP_TITLE' | translate}}</h1>
+        <form class="login-form" #loginForm="ngForm">
+            <input id="email" name="email" pInputText type="text" [placeholder]="'EMAIL' | translate"
+                class="p-inputtext-lg" [(ngModel)]="loginData.email" required />
+            <input id="password" name="password" pInputText type="password" [placeholder]="'PASSWORD' | translate"
+                class="p-inputtext-lg" [(ngModel)]="loginData.password" required />
+            <button id="login" name="login" type="submit" pButton [label]="'LOGIN' | translate" icon="pi pi-check"
+                class="p-button-lg p-button-success" (click)="login($event)" [disabled]="loginForm.invalid"></button>
+        </form>
+    </div>
+</div>

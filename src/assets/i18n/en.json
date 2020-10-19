@@ -1,0 +1,20 @@
+{
+    "APP_TITLE": "Spotify JR",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "SLOGAN_PART_1": "Don't listen to music",
+    "SLOGAN_PART_2": "Just LIVE it !",
+    "SEARCH": "Search",
+    "APP_ICON": "Spotify JR's icon",
+    "MEMBER_ICON": "Member icon",
+    "SUCCESS": "Success",
+    "ERROR": "Error",
+    "WARNING": "Warning",
+    "INFO": "Information",
+    "SUCCESSFULLY_LOGGED_IN": "You have successfully logged in !",
+    "LOGIN_ERROR": "An error occured while logging in",
+    "SUCCESSFULLY_LOGGED_OUT": "You have successfully logged out !",
+    "LOGOUT_ERROR": "Could not log out"
+}
