@@ -7,19 +7,14 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
     {
-        path: 'home',
-        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+        path: '',
+        loadChildren: () => import('./features/main/main.module').then(m => m.MainModule),
         ...canActivate(redirectUnauthorizedToLogin),
     },
     {
         path: 'login',
         loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
         ...canActivate(redirectLoggedInToHome),
-    },
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full', 
     },
 ];
 

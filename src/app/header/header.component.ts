@@ -1,6 +1,6 @@
 import { OverlayPanel } from 'primeng/overlaypanel';
 
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomMemberModel } from '@app/core/models/auth';
 import { MemberService, ToastService } from '@app/core/services';
