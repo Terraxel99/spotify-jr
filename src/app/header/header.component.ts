@@ -1,11 +1,9 @@
 import { OverlayPanel } from 'primeng/overlaypanel';
 
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
-import { CustomMemberModel } from '../core/models/auth/custom-member.model';
-import { MemberService } from '../core/services/member.service';
-import { ToastService } from '../core/services/toast.service';
 import { Router } from '@angular/router';
+import { CustomMemberModel } from '@app/core/models/auth';
+import { MemberService, ToastService } from '@app/core/services';
 
 @Component({
   selector: 'app-header',

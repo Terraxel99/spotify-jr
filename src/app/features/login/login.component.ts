@@ -1,10 +1,8 @@
-import { LoginModel } from 'src/app/core/models/auth/login.model';
-import { MemberService } from 'src/app/core/services/member.service';
-import { ToastService } from 'src/app/core/services/toast.service';
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginModel } from '@app/core/models/auth';
+import { MemberService, ToastService } from '@app/core/services';
 
 @Component({
   selector: 'app-login',
