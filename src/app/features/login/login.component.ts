@@ -1,9 +1,8 @@
-import { MemberService } from 'src/app/core/services/member.service';
-
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LoginModel } from 'src/app/core/models/auth/login.model';
-import { ToastService } from 'src/app/core/services/toast.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginModel } from '@app/core/models/auth';
+import { MemberService, ToastService } from '@app/core/services';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +15,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginForm', { static: false }) loginForm: NgForm;
 
   constructor(private memberService: MemberService,
-              private toastService: ToastService,) { }
+              private toastService: ToastService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.resetLoginModel();
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.memberService.login(this.loginData)
       .then(() => {
         this.toastService.successToast('SUCCESS', 'SUCCESSFULLY_LOGGED_IN');
+        this.router.navigate(['']);
       })
       .catch((error) => {
         this.toastService.errorToast('ERROR', 'LOGIN_ERROR');
