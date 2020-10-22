@@ -5,6 +5,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CustomMemberModel } from '../core/models/auth/custom-member.model';
 import { MemberService } from '../core/services/member.service';
 import { ToastService } from '../core/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private memberService: MemberService,
               private toastService: ToastService,
+              private router: Router
   ) { }
 
   /** Whether the current member has a profile image or not */
@@ -42,6 +44,7 @@ export class HeaderComponent implements OnInit {
     this.memberService.logout()
       .then(() => {
         this.toastService.successToast('SUCCESS', 'SUCCESSFULLY_LOGGED_OUT');
+        this.router.navigate(['/login']);
       })
       .catch((error) => {
         this.toastService.errorToast('ERROR', 'LOGOUT_ERROR');
