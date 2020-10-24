@@ -1,0 +1,21 @@
+.home {
+    padding: 15px 20px;
+
+    .section {
+        h2.section-title {
+            font-weight: 300;
+            
+            &::after {
+                display: block;
+                position: relative;
+                bottom: -3px;
+                
+                width: 20%;
+                height: 3px;
+                
+                background-color: $whiteColor;
+                content: "";
+            }
+        }
+    }
+}

@@ -1,1 +1,25 @@
-<p>audio-player works!</p>
+<div id="audio-player">
+    <div class="audio-main-panel">
+        <span class="deploy-song-menu">
+            <i class="icon pi pi-angle-up"></i>
+        </span>
+
+        <img *ngIf="currentSong && currentSong.image" [src]="currentSong.image" alt="SONG IMAGE" class="song-image">
+        <img *ngIf="!currentSong || !currentSong.image" src="../../../../assets/images/audio-player/default-music.jpg" alt="SONG IMAGE" class="song-image">
+
+        <div class="song-details">
+            <span class="song-title">{{currentSong?.title}}</span>
+            <span class="song-artist">Artist</span>
+        </div>
+
+        <div class="actions">
+            <div class="buttons">
+                <button type="button" pButton icon="pi pi-fast-backward"></button>
+                <button *ngIf="audio.paused" type="button" pButton icon="pi pi-play" (click)="togglePlay()"></button>
+                <button *ngIf="!audio.paused" type="button" pButton icon="pi pi-pause" (click)="togglePlay()"></button>
+                <button type="button" pButton icon="pi pi-fast-forward"></button>
+            </div>
+            <p-slider [(ngModel)]="sliderVolume" (onSlideEnd)="changeVolume($event)" [style]="{'width': '100%'}"></p-slider>
+        </div>
+    </div>
+</div>

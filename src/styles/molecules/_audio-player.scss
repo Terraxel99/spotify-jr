@@ -1,0 +1,71 @@
+#audio-player {
+    background-color: $primaryColor;
+    color: $whiteColor;
+
+    padding: 15px 2%;
+    width: 100vw;
+
+    .audio-main-panel {
+        display: flex;
+        flex-direction: row;
+
+        .deploy-song-menu {
+            .icon {
+                color: $whiteColor;
+                font-size: 1.3rem;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        img.song-image {
+            width: 60px;
+            height: 60px;
+            margin: 0 10px;
+        }
+
+        .song-details {
+            padding: 0;
+            flex-grow: 1;
+
+            .song-title,
+            .song-artist {
+                white-space: nowrap;
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p-slider {
+                width: 100%;
+
+                .p-slider {
+                    width: 100%;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                margin-bottom: 8px;
+
+
+                button {
+                    margin-right: 10px;
+    
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

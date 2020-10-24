@@ -1,0 +1,10 @@
+<div class="home">
+    <div class="section top-songs">
+        <h2 class="section-title">Top songs</h2>
+        <p-carousel [value]="topSongs">
+            <ng-template pTemplate="item" let-song>
+                <app-song-card></app-song-card>
+            </ng-template>
+        </p-carousel>
+    </div>
+</div>

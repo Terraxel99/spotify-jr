@@ -1,4 +1,5 @@
 header {
+    overflow: hidden;
     &.header {
         height: $headerHeight;
         background-color: $primaryColor;

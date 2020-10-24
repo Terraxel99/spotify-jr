@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import {
-    AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument
+    AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction
 } from '@angular/fire/firestore';
 import { Song } from '@app/core/models/song';
 
@@ -19,6 +20,13 @@ export class SongService {
 
   /** Gets observable for all songs */
   public getTopSongs(): Observable<Song[]> {
-    return this.songsCollection.valueChanges();
+    return this.songsCollection.snapshotChanges()
+      .pipe(map((actions) => actions.map(this.documentToDomainObject)));
+  }
+
+  documentToDomainObject = _ => {
+    const object = _.payload.doc.data();
+    object.id = _.payload.doc.id;
+    return object;
   }
 }
