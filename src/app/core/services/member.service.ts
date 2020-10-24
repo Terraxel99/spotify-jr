@@ -30,7 +30,6 @@ export class MemberService {
 
   /** Sets the current user to the given value */
   private setUser(user: User) {
-    console.log(user);
     if (!user) {
       this.currentMember.next(null);
     } else {
