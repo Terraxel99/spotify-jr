@@ -1,0 +1,18 @@
+.p-button.custom-btn {
+    border-width: 2px;
+    color: $whiteColor;
+
+    &.p-button-outlined {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-width: 2px;
+            color: $whiteColor;
+        }
+    }
+
+    &.p-button-rounded {
+        .p-button-icon {
+            color: $whiteColor;
+        }
+    }
+}

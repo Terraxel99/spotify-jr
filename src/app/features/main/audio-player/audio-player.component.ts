@@ -20,15 +20,20 @@ export class AudioPlayerComponent implements OnInit, OnDestroy   {
   /** The volume on the slider */
   public sliderVolume: number;
 
-  /** The firebase storage reference */
-  private storageReference = storage().ref();
-
   constructor(private songPlayerService: SongPlayerService,
               private responsiveService: ResponsiveService) { }
 
   ngOnInit(): void {
     this.sliderVolume = 50;
     this.audio.volume = this.sliderVolume / 100;
+
+    this.audio.addEventListener('pause', () => {
+      this.songPlayerService.setPlayerState(true);
+    });
+
+    this.audio.addEventListener('play', () => {
+      this.songPlayerService.setPlayerState(false);
+    });
 
     this.registerNewSongRequestedEvent();
     this.registerMobileEvent();
@@ -72,12 +77,23 @@ export class AudioPlayerComponent implements OnInit, OnDestroy   {
   private registerNewSongRequestedEvent(): void {
     this.songPlayerService.onSongRequested
       .subscribe((song) => {
-        if (!song) {
+        if (!song || !song.id || !song.id.length) {
           return;
         }
 
-        this.currentSong = song;
+        if (this.currentSong && this.currentSong.id === song.id) {
+          if (this.audio.paused) {
+            this.audio.play();
+          } else {
+            this.audio.pause();
+          }
+
+          return;
+        }
+
         this.audio.src = song.song;
+        this.songPlayerService.setCurrentSong(song);
+        this.currentSong = song;
         this.audio.play();
       });
   }

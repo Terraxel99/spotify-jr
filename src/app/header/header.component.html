@@ -7,10 +7,10 @@
             <input pInputText type="text" class="search-field" [placeholder]="'SEARCH' | translate" />
         </span>
     </div>
-    <p-overlayPanel #userPanel appendTo="body" styleClass="user-panel">
+    <p-overlayPanel #userPanel appendTo="body" styleClass="user-panel" *ngIf="!isMobile">
         <button type="button" class="logout-btn p-button-rounded p-button-secondary" pButton [label]="'LOGOUT' | translate" (click)="logout()"></button>
     </p-overlayPanel>
-    <div class="user-info" *ngIf="member">
+    <div class="user-info" *ngIf="!isMobile && member">
         <img class="user-image" [src]="member.image" *ngIf="memberHasImage" [alt]="'MEMBER_ICON' | translate">
         <span class="user-image" *ngIf="!memberHasImage">
             <i class="pi pi-user"></i>

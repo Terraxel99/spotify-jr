@@ -3,7 +3,7 @@ import { OverlayPanel } from 'primeng/overlaypanel';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomMemberModel } from '@app/core/models/auth';
-import { MemberService, ToastService } from '@app/core/services';
+import { MemberService, ResponsiveService, ToastService } from '@app/core/services';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +14,14 @@ export class HeaderComponent implements OnInit {
   /** The current member */
   public member: CustomMemberModel;
 
+  /** Whether the window is mobile sized or not */
+  public isMobile = true;
+
   @ViewChild('userPanel', { static: false }) userOverlayPanel: OverlayPanel;
 
   constructor(private memberService: MemberService,
               private toastService: ToastService,
+              private responsiveService: ResponsiveService,
               private router: Router
   ) { }
 
@@ -27,6 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.registerMobileEvent();
     // Everytime the user changes, we get the data in our component.
     this.memberService.currentMember.subscribe((user) => {
       if (!user) {
@@ -55,5 +60,13 @@ export class HeaderComponent implements OnInit {
   /** Closes the user overlay panel */
   private closeUserOverlayPanel(): void {
     this.userOverlayPanel.hide();
+  }
+
+  /** Registers the subscription to keep updated about the fact the screen is mobile sized or not */
+  private registerMobileEvent(): void {
+    this.responsiveService.isMobile
+      .subscribe((isMobile) => {
+        this.isMobile = isMobile;
+      });
   }
 }

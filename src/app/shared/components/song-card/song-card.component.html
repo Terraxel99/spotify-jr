@@ -1,1 +1,13 @@
-<p>song-card works!</p>
+<div class="song-card">
+    <div class="image-wrapper">
+        <img *ngIf="song.image" [src]="song.image" alt="Song image">
+        <div class="overlay displayed" (click)="onOverlayClick()">
+            <button *ngIf="!currentSongIsThisSong || isMusicPaused" type="button" pButton icon="pi pi-play" class="custom-btn state-button p-button-rounded p-button-outlined"></button>
+            <button *ngIf="currentSongIsThisSong && !isMusicPaused" type="button" pButton icon="pi pi-pause" class="custom-btn state-button p-button-rounded p-button-outlined"></button>
+        </div>
+    </div>
+    <div class="details">
+        <span class="title">{{song.title}}</span>
+        <span class="artist">Artist</span>
+    </div>
+</div>

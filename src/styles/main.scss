@@ -7,15 +7,20 @@
 @import "./base/font";
 @import "./base/base";
 @import "./base/charte";
+@import "./base/scrollbar";
 
 /* Atoms */
 @import "./atoms/input";
+@import "./atoms/carousel";
+@import "./atoms/button";
 
 /* Molecules */
 @import "./molecules/header";
 @import "./molecules/audio-player";
+@import "./molecules/song-card";
 
 /* Pages */
 @import "./pages/login";
 @import "./pages/main";
 @import "./pages/home";
+
